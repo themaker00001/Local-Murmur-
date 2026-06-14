@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"  stop-color="#1E1E1E"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="36%" r="60%">
+      <stop offset="0%"  stop-color="#FFFFFF" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- macOS-style rounded-square background -->
+  <rect width="1024" height="1024" rx="224" fill="url(#bg)"/>
+  <rect width="1024" height="1024" rx="224" fill="url(#glow)"/>
+  <rect x="2" y="2" width="1020" height="1020" rx="222" fill="none"
+        stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="4"/>
+
+  <!-- sound-wave arcs framing the mic -->
+  <path d="M 214 372 A 372 372 0 0 0 214 652" fill="none" stroke="#FFFFFF"
+        stroke-width="26" stroke-linecap="round" opacity="0.35"/>
+  <path d="M 122 322 A 470 470 0 0 0 122 702" fill="none" stroke="#FFFFFF"
+        stroke-width="26" stroke-linecap="round" opacity="0.18"/>
+  <path d="M 810 372 A 372 372 0 0 1 810 652" fill="none" stroke="#FFFFFF"
+        stroke-width="26" stroke-linecap="round" opacity="0.35"/>
+  <path d="M 902 322 A 470 470 0 0 1 902 702" fill="none" stroke="#FFFFFF"
+        stroke-width="26" stroke-linecap="round" opacity="0.18"/>
+
+  <!-- microphone glyph -->
+  <g transform="translate(512 498)">
+    <!-- capsule head -->
+    <rect x="-92" y="-230" width="184" height="320" rx="92" fill="#FFFFFF"/>
+    <!-- stand -->
+    <path d="M -196 -20 A 196 196 0 0 0 196 -20" fill="none" stroke="#FFFFFF"
+          stroke-width="40" stroke-linecap="round"/>
+    <!-- stem -->
+    <rect x="-20" y="160" width="40" height="110" rx="20" fill="#FFFFFF"/>
+    <!-- base -->
+    <rect x="-120" y="248" width="240" height="40" rx="20" fill="#FFFFFF"/>
+  </g>
+</svg>

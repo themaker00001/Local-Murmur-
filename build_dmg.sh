@@ -121,6 +121,7 @@ python3 -m PyInstaller \
     --name         "$APP_NAME" \
     --distpath     "$OUTPUT_DIR" \
     --workpath     "$SCRIPT_DIR/build" \
+    --icon         "$SCRIPT_DIR/AppIcon.icns" \
     "${WHISPER_BINARIES[@]}" \
     --collect-all  sounddevice \
     --collect-all  rumps \

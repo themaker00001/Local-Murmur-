@@ -5,18 +5,20 @@ Requires: pip install Pillow
 Output: dmg_background.png  (660 x 400 px)
 """
 
+import os
 import sys
 try:
     from PIL import Image, ImageDraw, ImageFont
 except ImportError:
     sys.exit("Run:  pip3 install Pillow")
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 W, H = 660, 400
 
 # ── Colours ───────────────────────────────────────────────────────────────────
 BG          = (18, 18, 20)        # near-black
 CARD        = (30, 30, 33)        # card surface
-ACCENT      = (250, 185, 0)       # amber — mic icon colour
 TEXT_H      = (245, 245, 247)     # headline white
 TEXT_S      = (140, 140, 148)     # secondary grey
 ARROW       = (70, 70, 78)        # muted arrow
@@ -35,33 +37,14 @@ for y in range(H):
 cx = W // 2
 draw.line([(cx, 60), (cx, H - 60)], fill=DIVIDER, width=1)
 
-# ── Left side — app icon placeholder ─────────────────────────────────────────
+# ── Left side — app icon ──────────────────────────────────────────────────────
 icon_cx, icon_cy = cx // 2, 155
-r = 56
+r = 56  # half the icon's on-canvas size
 
-# Glow ring
-for dr in range(20, 0, -1):
-    glow_alpha = int(4 * dr)
-    draw.ellipse(
-        [icon_cx - r - dr, icon_cy - r - dr,
-         icon_cx + r + dr, icon_cy + r + dr],
-        fill=(250, 185, 0, glow_alpha))
-
-# Icon circle background
-draw.ellipse(
-    [icon_cx - r, icon_cy - r, icon_cx + r, icon_cy + r],
-    fill=(35, 32, 20))
-
-# Mic body
-mw, mh = 22, 32
-mx, my = icon_cx - mw // 2, icon_cy - mh // 2 - 4
-draw.rounded_rectangle([mx, my, mx + mw, my + mh], radius=11, fill=ACCENT)
-
-# Mic stand
-sx = icon_cx
-draw.line([(sx, my + mh), (sx, my + mh + 12)], fill=ACCENT, width=3)
-draw.line([(sx - 12, my + mh + 12), (sx + 12, my + mh + 12)],
-          fill=ACCENT, width=3)
+# Paste the app logo (monochrome, rounded-square w/ transparent corners)
+logo = Image.open(os.path.join(SCRIPT_DIR, "logo_1024.png")).convert("RGBA")
+logo = logo.resize((r * 2, r * 2), Image.LANCZOS)
+img.paste(logo, (icon_cx - r, icon_cy - r), logo)
 
 # App name
 try:

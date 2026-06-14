@@ -1,4 +1,9 @@
-# 🎙️ Local Flow — Wispr Flow Clone for Apple M4
+<p align="center">
+  <img src="logo.svg" alt="Local Flow logo" width="120" height="120">
+</p>
+
+<h1 align="center">Local Flow</h1>
+<p align="center"><strong>Wispr Flow Clone for Apple M4</strong></p>
 
 A fully local, free voice dictation tool that works in **every app** on your Mac.
 Supports **Hinglish** (Hindi + English), cleans filler words via Ollama, and pastes polished text wherever your cursor is.

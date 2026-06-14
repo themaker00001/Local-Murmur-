@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>Local Flow</string>
 	<key>CFBundleIconFile</key>
-	<string>icon-windowed.icns</string>
+	<string>AppIcon.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.localflow.dictation</string>
 	<key>CFBundleInfoDictionaryVersion</key>

@@ -12,6 +12,10 @@
 		<data>
 		6k9wDttXse7WKMLNsCXBrQh8MfE=
 		</data>
+		<key>Resources/AppIcon.icns</key>
+		<data>
+		y24XuTW7WFWTMhD4+dL7KMTuR+I=
+		</data>
 		<key>Resources/WebKit/__init__.py</key>
 		<data>
 		hsoIJssN91sgY7G7+6J79mPdaZA=
@@ -26,11 +30,7 @@
 		</data>
 		<key>Resources/base_library.zip</key>
 		<data>
-		2onybnie20cHrfxiBCZXvsQh7lw=
-		</data>
-		<key>Resources/icon-windowed.icns</key>
-		<data>
-		eEHOuYpZLB0vKGVIWGZOh5rH8+o=
+		uDZCFufxiXpoUCZ7j060bYYU8yQ=
 		</data>
 		<key>Resources/numpy-2.4.4.dist-info/INSTALLER</key>
 		<data>
@@ -502,6 +502,51 @@
 			<key>requirement</key>
 			<string>cdhash H"c10f444a51e303fb3eb9ac723c9298c9d3f95871"</string>
 		</dict>
+		<key>Frameworks/libggml-base.0.dylib</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			k5Jqk5WOTdn54NaK5TksON/SjhI=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"93926a93958e4dd9f9e0d68ae5392c38dfd28e12"</string>
+		</dict>
+		<key>Frameworks/libggml-blas.0.dylib</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			TIoIVKRGDFnRSglnIA84vWSDw/M=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"4c8a0854a4460c59d14a0967200f38bd6483c3f3"</string>
+		</dict>
+		<key>Frameworks/libggml-cpu.0.dylib</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			zONHr3ZQpXsD88a9vCg0a/yvsrg=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"cce347af7650a57b03f3c6bdbc28346bfcafb2b8"</string>
+		</dict>
+		<key>Frameworks/libggml-metal.0.dylib</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			jDTaByRp22+IAjs4zo5pI2ETmxM=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"8c34da072469db6f88023b38ce8e692361139b13"</string>
+		</dict>
+		<key>Frameworks/libggml.0.dylib</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			pfamqvSvUPoZTGkagouNN1YzpEE=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"a5f6a6aaf4af50fa194c691a828b8d375633a441"</string>
+		</dict>
 		<key>Frameworks/libssl.3.dylib</key>
 		<dict>
 			<key>cdhash</key>
@@ -510,6 +555,15 @@
 			</data>
 			<key>requirement</key>
 			<string>cdhash H"268be6d6431e2e64ab93bd7cd98b9e515ae764c2"</string>
+		</dict>
+		<key>Frameworks/libwhisper.1.dylib</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			CDGozDTYl+2oDKTd7wUrf4Nd+RA=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"0831a8cc34d897eda80ca4ddef052b7f835df910"</string>
 		</dict>
 		<key>Frameworks/numpy-2.4.4.dist-info</key>
 		<dict>
@@ -1149,6 +1203,15 @@
 			<key>symlink</key>
 			<string>../Resources/sounddevice-0.5.5.dist-info</string>
 		</dict>
+		<key>Frameworks/whisper-cli</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			ayIQBE9mBIhFlyoHRA111Iqvmc8=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"6b2210044f66048845972a07440d75d48aaf99cf"</string>
+		</dict>
 		<key>Frameworks/yaml/_yaml.cpython-313-darwin.so</key>
 		<dict>
 			<key>cdhash</key>
@@ -1185,6 +1248,13 @@
 			<key>hash2</key>
 			<data>
 			ARCfYP+yPqOdEePnGw3IEZxeJLqPa8ywt0lRkKPdL8M=
+			</data>
+		</dict>
+		<key>Resources/AppIcon.icns</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			GQgKFbUcIjaLZJrDqcX3gbMDtABwbYf9h66rub9sj80=
 			</data>
 		</dict>
 		<key>Resources/AppKit</key>
@@ -1262,7 +1332,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JX2C9YtJoIZ1gK28vl42HKA7tgb2OzFBJhBlkwsTQ6Y=
+			WvqKPYZ1XxZSpzBmcWtb4ueYBpoLFjpEGDK9VVUpEes=
 			</data>
 		</dict>
 		<key>Resources/charset_normalizer</key>
@@ -1270,22 +1340,45 @@
 			<key>symlink</key>
 			<string>../Frameworks/charset_normalizer</string>
 		</dict>
-		<key>Resources/icon-windowed.icns</key>
-		<dict>
-			<key>hash2</key>
-			<data>
-			uQo7VuWRab4Phv4EEGmfQsyqFqDIXZgO8OtgaAMvCzY=
-			</data>
-		</dict>
 		<key>Resources/libcrypto.3.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>../Frameworks/libcrypto.3.dylib</string>
 		</dict>
+		<key>Resources/libggml-base.0.dylib</key>
+		<dict>
+			<key>symlink</key>
+			<string>../Frameworks/libggml-base.0.dylib</string>
+		</dict>
+		<key>Resources/libggml-blas.0.dylib</key>
+		<dict>
+			<key>symlink</key>
+			<string>../Frameworks/libggml-blas.0.dylib</string>
+		</dict>
+		<key>Resources/libggml-cpu.0.dylib</key>
+		<dict>
+			<key>symlink</key>
+			<string>../Frameworks/libggml-cpu.0.dylib</string>
+		</dict>
+		<key>Resources/libggml-metal.0.dylib</key>
+		<dict>
+			<key>symlink</key>
+			<string>../Frameworks/libggml-metal.0.dylib</string>
+		</dict>
+		<key>Resources/libggml.0.dylib</key>
+		<dict>
+			<key>symlink</key>
+			<string>../Frameworks/libggml.0.dylib</string>
+		</dict>
 		<key>Resources/libssl.3.dylib</key>
 		<dict>
 			<key>symlink</key>
 			<string>../Frameworks/libssl.3.dylib</string>
+		</dict>
+		<key>Resources/libwhisper.1.dylib</key>
+		<dict>
+			<key>symlink</key>
+			<string>../Frameworks/libwhisper.1.dylib</string>
 		</dict>
 		<key>Resources/numpy</key>
 		<dict>
@@ -1747,6 +1840,11 @@
 			<data>
 			4x/9IJSWMb6StbHBe+jbHWC1cJf/unhQwxaMBghH/L4=
 			</data>
+		</dict>
+		<key>Resources/whisper-cli</key>
+		<dict>
+			<key>symlink</key>
+			<string>../Frameworks/whisper-cli</string>
 		</dict>
 		<key>Resources/yaml</key>
 		<dict>

@@ -1,2 +1,10 @@
 __pycache__/
 *.pyc
+.DS_Store
+
+# Build output (regenerate with ./build_dmg.sh)
+dist/
+build/
+*.spec
+.dmg_staging/
+.whisper_stage/

@@ -8,7 +8,7 @@ from .log import _log
 if getattr(sys, 'frozen', False):
     _bundle_dir = Path(sys._MEIPASS)
     WHISPER_BIN = _bundle_dir / "whisper-cli"
-    ASSETS_DIR  = _bundle_dir / "localflow" / "assets"
+    ASSETS_DIR  = _bundle_dir / "localmurmur" / "assets"
 else:
     WHISPER_BIN = Path.home() / "whisper.cpp" / "build" / "bin" / "whisper-cli"
     ASSETS_DIR  = Path(__file__).resolve().parent / "assets"
@@ -19,7 +19,7 @@ WHISPER_THREADS = 8
 # ── Models ───────────────────────────────────────────────────────────────────
 # Models are downloaded on demand (not bundled) — keeps the app small and lets
 # users pick the speed/accuracy tradeoff that fits their Mac.
-MODELS_DIR         = Path.home() / "Library" / "Application Support" / "Local Flow" / "models"
+MODELS_DIR         = Path.home() / "Library" / "Application Support" / "Local Murmur" / "models"
 _LEGACY_MODELS_DIR = Path.home() / "whisper.cpp" / "models"   # from older Setup.sh runs
 MODEL_BASE_URL     = "https://huggingface.co/ggerganov/whisper.cpp/resolve/main"
 
@@ -87,7 +87,7 @@ HOTKEY_LABELS = {
 }
 
 # ── Settings persistence ────────────────────────────────────────────────────────
-_SETTINGS_PATH = Path.home() / ".localflow" / "settings.json"
+_SETTINGS_PATH = Path.home() / ".localmurmur" / "settings.json"
 
 
 def _load_settings():

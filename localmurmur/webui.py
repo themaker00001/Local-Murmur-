@@ -87,7 +87,7 @@ def _download_model_async(model_id: str, panel):
         tmp  = dest.with_name(dest.name + ".part")
         url  = f"{config.MODEL_BASE_URL}/{m['file']}"
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": "LocalFlow"})
+            req = urllib.request.Request(url, headers={"User-Agent": "LocalMurmur"})
             with urllib.request.urlopen(req, timeout=30) as resp:
                 total = int(resp.headers.get("Content-Length") or m["size_mb"] * 1024 * 1024)
                 downloaded, last = 0, 0.0
@@ -238,7 +238,7 @@ class SettingsPanel:
             NSWindowStyleMaskMiniaturizable |
             NSWindowStyleMaskResizable,
             NSBackingStoreBuffered, False)
-        self._win.setTitle_("Local Flow")
+        self._win.setTitle_("Local Murmur")
         self._win.setCollectionBehavior_(
             NSWindowCollectionBehaviorCanJoinAllSpaces)
         # Quit the whole app (and take the pill with it) when the window closes.

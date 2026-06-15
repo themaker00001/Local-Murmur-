@@ -4,7 +4,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.localflow.dictation</string>
+    <string>com.localmurmur.dictation</string>
 
     <key>ProgramArguments</key>
     <array>
@@ -22,8 +22,8 @@
 
     <!-- Log output -->
     <key>StandardOutPath</key>
-    <string>/tmp/localflow.log</string>
+    <string>/tmp/localmurmur.log</string>
     <key>StandardErrorPath</key>
-    <string>/tmp/localflow.err</string>
+    <string>/tmp/localmurmur.err</string>
 </dict>
 </plist>

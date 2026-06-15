@@ -1,6 +1,6 @@
 #!/bin/bash
 # ─────────────────────────────────────────────────────────────
-#  build_dmg.sh — Build a distributable DMG for Local Flow
+#  build_dmg.sh — Build a distributable DMG for Local Murmur
 #
 #  Uses PyInstaller to produce a real standalone macOS .app:
 #    • Python bundled inside — stable dock icon, no shell launcher
@@ -10,7 +10,7 @@
 #      user picks from Settings → Models on first launch
 #    • Works exactly like Wispr Flow
 #
-#  Output: dist/Local-Flow-1.1.0.dmg
+#  Output: dist/Local-Murmur-1.1.0.dmg
 # ─────────────────────────────────────────────────────────────
 
 set -euo pipefail
@@ -29,9 +29,9 @@ cleanup_on_fail() {
     [ -f "${TEMP_DMG:-}"     ] && rm -f  "$TEMP_DMG"
 }
 
-APP_NAME="Local Flow"
+APP_NAME="Local Murmur"
 VERSION="1.1.0"
-BUNDLE_ID="com.localflow.dictation"
+BUNDLE_ID="com.localmurmur.dictation"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 OUTPUT_DIR="$SCRIPT_DIR/dist"
 STAGING_DIR="$SCRIPT_DIR/.dmg_staging"
@@ -39,7 +39,7 @@ FINAL_DMG="$OUTPUT_DIR/${APP_NAME// /-}-${VERSION}.dmg"
 TEMP_DMG="$OUTPUT_DIR/tmp_rw.dmg"
 
 echo ""
-echo "  🎙️  Local Flow — DMG Builder  v${VERSION}  (PyInstaller)"
+echo "  🎙️  Local Murmur — DMG Builder  v${VERSION}  (PyInstaller)"
 echo "  ──────────────────────────────────────────────────────"
 echo "  Output : $FINAL_DMG"
 echo ""
@@ -48,7 +48,7 @@ echo ""
 # STEP 1 — Verify source files
 # ══════════════════════════════════════════════════════════════
 section "Verify source files"
-for f in flow.py Setup.sh uninstall.sh; do
+for f in flow.py Setup.sh uninstall.sh localmurmur/assets/settings.html; do
     [ -f "$SCRIPT_DIR/$f" ] && ok "Found: $f" || { fail "Missing: $f"; exit 1; }
 done
 
@@ -122,6 +122,7 @@ python3 -m PyInstaller \
     --distpath     "$OUTPUT_DIR" \
     --workpath     "$SCRIPT_DIR/build" \
     --icon         "$SCRIPT_DIR/AppIcon.icns" \
+    --add-data     "localmurmur/assets:localmurmur/assets" \
     "${WHISPER_BINARIES[@]}" \
     --collect-all  sounddevice \
     --collect-all  rumps \
@@ -148,10 +149,10 @@ PLIST="$APP_SRC/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Set :NSHighResolutionCapable true" "$PLIST" 2>/dev/null || \
     /usr/libexec/PlistBuddy -c "Add :NSHighResolutionCapable bool true" "$PLIST"
 /usr/libexec/PlistBuddy -c \
-    "Add :NSMicrophoneUsageDescription string 'Local Flow uses your microphone to capture voice for dictation.'" \
+    "Add :NSMicrophoneUsageDescription string 'Local Murmur uses your microphone to capture voice for dictation.'" \
     "$PLIST" 2>/dev/null || true
 /usr/libexec/PlistBuddy -c \
-    "Add :NSAppleEventsUsageDescription string 'Local Flow uses AppleScript to paste dictated text into other apps.'" \
+    "Add :NSAppleEventsUsageDescription string 'Local Murmur uses AppleScript to paste dictated text into other apps.'" \
     "$PLIST" 2>/dev/null || true
 ok "Info.plist patched with permission descriptions"
 
@@ -225,8 +226,8 @@ echo "  Size : ${DMG_SIZE} MB"
 echo ""
 echo "  Install:"
 echo "    1. open \"$FINAL_DMG\""
-echo "    2. Drag  Local Flow → Applications"
-echo "    3. Double-click Local Flow — starts immediately, no Terminal"
+echo "    2. Drag  Local Murmur → Applications"
+echo "    3. Double-click Local Murmur — starts immediately, no Terminal"
 echo "    4. On first launch, pick a transcription model under Settings → Models"
 echo "════════════════════════════════════════════════════════"
 echo ""

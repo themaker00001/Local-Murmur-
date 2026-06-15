@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="logo.svg" alt="Local Flow logo" width="120" height="120">
+  <img src="logo.svg" alt="Local Murmur logo" width="120" height="120">
 </p>
 
-<h1 align="center">Local Flow</h1>
+<h1 align="center">Local Murmur</h1>
 <p align="center"><strong>Wispr Flow Clone for Apple M4</strong></p>
 
 A fully local, free voice dictation tool that works in **every app** on your Mac.
@@ -28,7 +28,7 @@ Supports **Hinglish** (Hindi + English), cleans filler words via Ollama, and pas
 The DMG ships **without** a transcription model — it stays small and fast to
 download. `whisper-cli` (with Metal support) is already bundled inside the app.
 
-1. Open the DMG and drag **Local Flow** to **Applications**.
+1. Open the DMG and drag **Local Murmur** to **Applications**.
 2. Launch it. On first run, the Settings window opens straight to **Models**.
 3. Pick a model and hit **Download** — sizes range from ~75 MB (Tiny) to
    ~2.9 GB (Large v3), with a live progress bar.
@@ -107,11 +107,11 @@ Then **click into any app** (Slack, browser, Notes, VS Code…) and:
 
 ## Auto-start on login (optional)
 
-1. Edit `com.localflow.dictation.plist` — replace `YOUR_USERNAME` with your actual username
+1. Edit `com.localmurmur.dictation.plist` — replace `YOUR_USERNAME` with your actual username
 2. Copy to LaunchAgents:
 ```bash
-cp com.localflow.dictation.plist ~/Library/LaunchAgents/
-launchctl load ~/Library/LaunchAgents/com.localflow.dictation.plist
+cp com.localmurmur.dictation.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.localmurmur.dictation.plist
 ```
 
 ---
@@ -165,7 +165,7 @@ Your M4 with 24 GB can comfortably run `large-v3` + `llama3.2` simultaneously.
   The packaged app bundles `whisper-cli` already — if you see this in the app, reinstall it.
 
 **"No model installed" / dictation does nothing**
-→ Open **Settings → Models** and download a model — Local Flow needs at least
+→ Open **Settings → Models** and download a model — Local Murmur needs at least
   one model installed to transcribe.
 
 ---

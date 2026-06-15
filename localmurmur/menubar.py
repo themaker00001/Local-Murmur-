@@ -19,7 +19,7 @@ class MenuBarApp(rumps.App):
     }
 
     def __init__(self):
-        super().__init__("\U0001f399", quit_button="Quit Local Flow")
+        super().__init__("\U0001f399", quit_button="Quit Local Murmur")
         self._hud    = FloatingHUD()
         self._panel  = SettingsPanel()
         self._status = rumps.MenuItem("● Idle — hold key to dictate")

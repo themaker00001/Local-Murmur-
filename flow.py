@@ -1,6 +1,7 @@
+
 #!/usr/bin/env python3.13
 """
-Local Flow — Voice Dictation for Apple Silicon
+Local Murmur — Voice Dictation for Apple Silicon
 - rumps menu bar  (Cocoa NSRunLoop)
 - NSVisualEffectView frosted-glass HUD  (no emoji, coloured dot)
 - WKWebView settings panel  (monochrome, accent picker, hotkey picker, mic test)
@@ -14,11 +15,11 @@ import warnings
 
 warnings.filterwarnings("ignore", ".*ObjCPointer.*")   # suppress CGColor C-pointer noise
 
-from localflow import config, state
-from localflow.audio import audio_callback
-from localflow.hotkey import _start_keyboard_monitor
-from localflow.log import _log
-from localflow.menubar import MenuBarApp
+from localmurmur import config, state
+from localmurmur.audio import audio_callback
+from localmurmur.hotkey import _start_keyboard_monitor
+from localmurmur.log import _log
+from localmurmur.menubar import MenuBarApp
 
 import sounddevice as sd
 import rumps
@@ -29,11 +30,11 @@ _log("=== flow.py loaded ===")
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main():
     print("=" * 55)
-    print("  \U0001f399  Local Flow — Voice Dictation")
+    print("  \U0001f399  Local Murmur — Voice Dictation")
     print("=" * 55)
 
     if not config.WHISPER_BIN.exists():
-        sys.exit("\n❌ whisper-cli not found inside the app bundle. Please reinstall Local Flow.")
+        sys.exit("\n❌ whisper-cli not found inside the app bundle. Please reinstall Local Murmur.")
 
     if not config.WHISPER_MODEL.exists():
         print("\n⚠️  No transcription model installed yet.")

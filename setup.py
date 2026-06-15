@@ -40,21 +40,21 @@ OPTIONS = {
     ],
 
     "plist": {
-        "CFBundleName":             "Local Flow",
-        "CFBundleDisplayName":      "Local Flow",
-        "CFBundleIdentifier":       "com.localflow.dictation",
+        "CFBundleName":             "Local Murmur",
+        "CFBundleDisplayName":      "Local Murmur",
+        "CFBundleIdentifier":       "com.localmurmur.dictation",
         "CFBundleVersion":          "1.1.0",
         "CFBundleShortVersionString": "1.1.0",
         "NSHighResolutionCapable":  True,
         "NSMicrophoneUsageDescription":
-            "Local Flow uses your microphone to capture voice for dictation.",
+            "Local Murmur uses your microphone to capture voice for dictation.",
         "NSAppleEventsUsageDescription":
-            "Local Flow uses AppleScript to paste dictated text into other apps.",
+            "Local Murmur uses AppleScript to paste dictated text into other apps.",
     },
 }
 
 setup(
-    name="Local Flow",
+    name="Local Murmur",
     app=APP,
     options={"py2app": OPTIONS},
     setup_requires=["py2app"],

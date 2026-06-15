@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generates the DMG installer background PNG for Local Flow.
+Generates the DMG installer background PNG for Local Murmur.
 Requires: pip install Pillow
 Output: dmg_background.png  (660 x 400 px)
 """
@@ -54,7 +54,7 @@ try:
 except Exception:
     font_big = font_mid = font_sm = ImageFont.load_default()
 
-draw.text((icon_cx, icon_cy + r + 20), "Local Flow",
+draw.text((icon_cx, icon_cy + r + 20), "Local Murmur",
           fill=TEXT_H, font=font_big, anchor="mm")
 draw.text((icon_cx, icon_cy + r + 44), "Voice dictation. Local. Private.",
           fill=TEXT_S, font=font_mid, anchor="mm")

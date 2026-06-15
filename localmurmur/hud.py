@@ -15,7 +15,7 @@ except Exception as e:
 
 # ── Persistent floating pill  (always visible — like Wispr Flow) ──────────────
 #
-#  Idle      →  small pill  "● Local Flow"   positioned just above dock
+#  Idle      →  small pill  "● Local Murmur"   positioned just above dock
 #  Recording →  full pill   "● Listening…"   expands on hotkey press
 #  Done      →  briefly shows "● Done"       then shrinks back to idle
 #

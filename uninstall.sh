@@ -1,6 +1,6 @@
 #!/bin/bash
 # ─────────────────────────────────────────────────────────────
-#  uninstall.sh — Fully remove Local Flow and everything
+#  uninstall.sh — Fully remove Local Murmur and everything
 #                 installed by Setup.sh / the DMG
 #  Run:  chmod +x uninstall.sh && ./uninstall.sh
 # ─────────────────────────────────────────────────────────────
@@ -23,7 +23,7 @@ ask()     { read -r -p "$(echo -e "${YELLOW}  ?${NC}  $1 (y/N): ")" _ans
 disk_size() { du -sh "$1" 2>/dev/null | cut -f1 || echo "?"; }
 
 echo ""
-echo "  🗑️  Local Flow — Full Uninstaller"
+echo "  🗑️  Local Murmur — Full Uninstaller"
 echo "  ──────────────────────────────────"
 echo ""
 
@@ -32,7 +32,7 @@ section "What will be removed"
 
 HAS_LAUNCHAGENT=false
 HAS_FLOWPY=false
-HAS_LOCALFLOW_DIR=false
+HAS_LOCALMURMUR_DIR=false
 HAS_FW_CACHE=false
 HAS_APP=false
 HAS_WHISPER=false
@@ -42,9 +42,9 @@ HAS_PORTAUDIO=false
 HAS_CMAKE=false
 HAS_LOGS=false
 
-PLIST_PATH="$HOME/Library/LaunchAgents/com.localflow.dictation.plist"
+PLIST_PATH="$HOME/Library/LaunchAgents/com.localmurmur.dictation.plist"
 WHISPER_DIR="$HOME/whisper.cpp"
-LOCALFLOW_DIR="$HOME/.localflow"
+LOCALMURMUR_DIR="$HOME/.localmurmur"
 FW_CACHE_DIR="$HOME/.cache/huggingface/hub"
 
 [ -f "$PLIST_PATH" ] \
@@ -53,11 +53,11 @@ pkill -0 -f "flow.py" 2>/dev/null \
     && echo "  • flow.py (running process)"
 [ -f "$HOME/flow.py" ] \
     && HAS_FLOWPY=true && echo "  • ~/flow.py"
-[ -d "$LOCALFLOW_DIR" ] \
-    && HAS_LOCALFLOW_DIR=true \
-    && echo "  • ~/.localflow/  venv + config  ($(disk_size "$LOCALFLOW_DIR"))"
-[ -d "/Applications/Local Flow.app" ] \
-    && HAS_APP=true && echo "  • /Applications/Local Flow.app"
+[ -d "$LOCALMURMUR_DIR" ] \
+    && HAS_LOCALMURMUR_DIR=true \
+    && echo "  • ~/.localmurmur/  venv + config  ($(disk_size "$LOCALMURMUR_DIR"))"
+[ -d "/Applications/Local Murmur.app" ] \
+    && HAS_APP=true && echo "  • /Applications/Local Murmur.app"
 [ -d "$WHISPER_DIR" ] \
     && HAS_WHISPER=true \
     && echo "  • ~/whisper.cpp  ($(disk_size "$WHISPER_DIR"))"
@@ -90,7 +90,7 @@ command -v brew &>/dev/null && brew list portaudio &>/dev/null 2>&1 \
 command -v brew &>/dev/null && brew list cmake &>/dev/null 2>&1 \
     && HAS_CMAKE=true && echo "  • Homebrew: cmake  (optional — will ask)"
 
-for f in /tmp/localflow.log /tmp/localflow.err "$HOME/Library/Logs/localflow.log"; do
+for f in /tmp/localmurmur.log /tmp/localmurmur.err "$HOME/Library/Logs/localmurmur.log"; do
     [ -f "$f" ] && HAS_LOGS=true && echo "  • Log: $f"
 done
 
@@ -122,15 +122,15 @@ pkill -f "flow.py"     2>/dev/null && ok "flow.py stopped"     || skip "flow.py 
 pkill -f "whisper-cli" 2>/dev/null && ok "whisper-cli stopped" || true
 
 # ══════════════════════════════════════════════════════════════
-# 3. Remove Local Flow.app
+# 3. Remove Local Murmur.app
 # ══════════════════════════════════════════════════════════════
-section "Local Flow.app"
+section "Local Murmur.app"
 if $HAS_APP; then
-    SIZE=$(disk_size "/Applications/Local Flow.app")
-    rm -rf "/Applications/Local Flow.app"
-    removed "/Applications/Local Flow.app" "$SIZE"
+    SIZE=$(disk_size "/Applications/Local Murmur.app")
+    rm -rf "/Applications/Local Murmur.app"
+    removed "/Applications/Local Murmur.app" "$SIZE"
 else
-    skip "/Applications/Local Flow.app"
+    skip "/Applications/Local Murmur.app"
 fi
 
 # ══════════════════════════════════════════════════════════════
@@ -145,15 +145,15 @@ else
 fi
 
 # ══════════════════════════════════════════════════════════════
-# 5. Remove ~/.localflow/  (venv, config, flow.py copy)
+# 5. Remove ~/.localmurmur/  (venv, config, flow.py copy)
 # ══════════════════════════════════════════════════════════════
-section "~/.localflow/  (venv + app data)"
-if $HAS_LOCALFLOW_DIR; then
-    SIZE=$(disk_size "$LOCALFLOW_DIR")
-    rm -rf "$LOCALFLOW_DIR"
-    removed "~/.localflow/" "$SIZE"
+section "~/.localmurmur/  (venv + app data)"
+if $HAS_LOCALMURMUR_DIR; then
+    SIZE=$(disk_size "$LOCALMURMUR_DIR")
+    rm -rf "$LOCALMURMUR_DIR"
+    removed "~/.localmurmur/" "$SIZE"
 else
-    skip "~/.localflow/"
+    skip "~/.localmurmur/"
 fi
 
 # ══════════════════════════════════════════════════════════════
@@ -161,7 +161,7 @@ fi
 # ══════════════════════════════════════════════════════════════
 section "faster-whisper model cache  (~/.cache/huggingface/hub)"
 if $HAS_FW_CACHE; then
-    echo "  These cached models are only used by Local Flow."
+    echo "  These cached models are only used by Local Murmur."
     echo "  Skip this if you use faster-whisper in other projects."
     echo ""
     if ask "Remove faster-whisper model cache?"; then
@@ -295,7 +295,7 @@ fi
 # ══════════════════════════════════════════════════════════════
 section "Log files"
 REMOVED_LOGS=false
-for f in /tmp/localflow.log /tmp/localflow.err "$HOME/Library/Logs/localflow.log"; do
+for f in /tmp/localmurmur.log /tmp/localmurmur.err "$HOME/Library/Logs/localmurmur.log"; do
     if [ -f "$f" ]; then
         rm -f "$f"
         removed "$f"

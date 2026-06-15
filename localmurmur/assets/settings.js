@@ -119,8 +119,8 @@ function modelCard(m){
 function pageModels(){
   var anyDownloaded = Object.keys(S.modelStatus).some(function(k){ return S.modelStatus[k].downloaded; });
   var banner = anyDownloaded ? '' :
-    '<div class="setup-banner"><b>Welcome to Local Flow!</b> Pick a model below and download it to '
-    +'get started — Local Flow needs at least one model installed to transcribe your voice.</div>';
+    '<div class="setup-banner"><b>Welcome to Local Murmur!</b> Pick a model below and download it to '
+    +'get started — Local Murmur needs at least one model installed to transcribe your voice.</div>';
 
   var current = anyDownloaded ?
     '<div class="igroup">'+irow('Active model',S.model)+irow('Threads',S.threads)+irow('Language',S.lang)+irow('Engine','whisper.cpp (Metal)')+'</div><div class="divider"></div>'
@@ -129,7 +129,7 @@ function pageModels(){
   var cards = (S.catalog||[]).map(modelCard).join('');
 
   return '<div class="page-title">Models</div>'
-    +'<div class="page-sub">Choose how Local Flow turns speech into text. Bigger models are more accurate but take longer to download and run.</div>'
+    +'<div class="page-sub">Choose how Local Murmur turns speech into text. Bigger models are more accurate but take longer to download and run.</div>'
     +banner+current
     +'<div class="sec">Available models</div>'
     +'<div class="model-list">'+cards+'</div>';
@@ -166,7 +166,7 @@ function pageHistory(){
 
 function pageAbout(){
   return '<div class="about"><div class="aico"><svg viewBox=\'0 0 1024 1024\' xmlns=\'http://www.w3.org/2000/svg\'><rect width=\'1024\' height=\'1024\' rx=\'224\' fill=\'#0D0D0D\'/><rect x=\'2\' y=\'2\' width=\'1020\' height=\'1020\' rx=\'222\' fill=\'none\' stroke=\'#fff\' stroke-opacity=\'.08\' stroke-width=\'4\'/><path d=\'M214 372A372 372 0 00214 652\' fill=\'none\' stroke=\'#fff\' stroke-width=\'26\' stroke-linecap=\'round\' opacity=\'.35\'/><path d=\'M810 372A372 372 0 01810 652\' fill=\'none\' stroke=\'#fff\' stroke-width=\'26\' stroke-linecap=\'round\' opacity=\'.35\'/><g transform=\'translate(512 498)\'><rect x=\'-92\' y=\'-230\' width=\'184\' height=\'320\' rx=\'92\' fill=\'#fff\'/><path d=\'M-196-20A196 196 0 00196-20\' fill=\'none\' stroke=\'#fff\' stroke-width=\'40\' stroke-linecap=\'round\'/><rect x=\'-20\' y=\'160\' width=\'40\' height=\'110\' rx=\'20\' fill=\'#fff\'/><rect x=\'-120\' y=\'248\' width=\'240\' height=\'40\' rx=\'20\' fill=\'#fff\'/></g></svg></div>'
-    +'<div class="atitle">Local Flow</div><div class="aver">Version 1.2.0</div>'
+    +'<div class="atitle">Local Murmur</div><div class="aver">Version 1.2.0</div>'
     +'<div class="adesc">Voice dictation for Apple Silicon. Powered by whisper.cpp with Metal. Your voice never leaves your Mac.</div>'
     +'<div class="badges"><span class="badge">100% Local</span><span class="badge">No Cloud</span>'
     +'<span class="badge">No Subscription</span><span class="badge">Apple Silicon</span></div></div>';

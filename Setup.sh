@@ -1,6 +1,6 @@
 #!/bin/bash
 # ─────────────────────────────────────────────────────────────
-#  Setup.sh — Local Flow one-time setup for Apple Silicon
+#  Setup.sh — Local Murmur one-time setup for Apple Silicon
 #  Run once:  chmod +x Setup.sh && ./Setup.sh
 # ─────────────────────────────────────────────────────────────
 set -e
@@ -16,7 +16,7 @@ error()   { echo -e "${RED}[✗]${NC} $1"; exit 1; }
 section() { echo -e "\n${YELLOW}── $1 ──${NC}"; }
 
 echo ""
-echo "  🎙️  Local Flow — Setup for Apple Silicon"
+echo "  🎙️  Local Murmur — Setup for Apple Silicon"
 echo "  ──────────────────────────────────────────"
 echo ""
 
@@ -98,6 +98,6 @@ echo ""
 echo "════════════════════════════════════════════════════════"
 echo "  ✅  Setup complete!"
 echo ""
-echo "  Re-open Local Flow from your Applications folder."
+echo "  Re-open Local Murmur from your Applications folder."
 echo "════════════════════════════════════════════════════════"
 echo ""

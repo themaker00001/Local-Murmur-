@@ -16,9 +16,9 @@ def _show_mic_alert():
     try:
         r = subprocess.run(
             ["osascript", "-e",
-             'display dialog "Local Flow cannot hear you — Microphone access may be denied.'
+             'display dialog "Local Murmur cannot hear you — Microphone access may be denied.'
              '\n\nOpen System Settings → Privacy & Security → Microphone'
-             ' and enable Local Flow, then relaunch the app."'
+             ' and enable Local Murmur, then relaunch the app."'
              ' buttons {"Open Settings", "OK"} default button "OK"'],
             capture_output=True, text=True, timeout=60)
         if "Open Settings" in r.stdout:
@@ -34,9 +34,9 @@ def _show_accessibility_alert():
     try:
         r = subprocess.run(
             ["osascript", "-e",
-             'display dialog "Local Flow needs Accessibility access to detect hotkeys.'
+             'display dialog "Local Murmur needs Accessibility access to detect hotkeys.'
              '\n\nOpen System Settings → Privacy & Security → Accessibility,'
-             ' enable Local Flow, then relaunch the app."'
+             ' enable Local Murmur, then relaunch the app."'
              ' buttons {"Open Settings", "OK"} default button "OK"'],
             capture_output=True, text=True, timeout=60)
         if "Open Settings" in r.stdout:

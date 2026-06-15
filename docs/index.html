@@ -7,12 +7,12 @@
   <!-- SEO Meta Tags -->
   <title>Local Murmur — Wispr Flow Clone for macOS (100% Offline Voice Dictation)</title>
   <meta name="description" content="Local Murmur is a free, fully offline macOS voice dictation tool. A Wispr Flow clone using whisper.cpp on Apple Silicon with Ollama for filler-word cleanup.">
-  <meta name="keywords" content="Wispr Flow, macOS dictation, local speech to text, whisper.cpp, Ollama, Hinglish dictation, Apple Silicon voice control">
+  <meta name="keywords" content="Wispr Flow, macOS dictation, local speech to text, whisper.cpp, Ollama, multilingual dictation, translate to English, Apple Silicon voice control">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Local Murmur — Local Voice Dictation for macOS">
-  <meta property="og:description" content="Wispr Flow Clone for Apple Silicon. Transcribe Hinglish locally and clean up filler words via local LLM.">
+  <meta property="og:description" content="Wispr Flow Clone for Apple Silicon. Transcribe 99 languages locally, translate to English, and clean up filler words via local LLM.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,7 +64,7 @@
           <span class="gradient-text">Let it type perfectly.</span>
         </h1>
         <p class="hero-subtitle">
-          A fully local, private voice dictation tool for macOS. Inspired by Wispr Flow. Transcribe Hinglish instantly with whisper.cpp and polish your text with Ollama.
+          A fully local, private voice dictation tool for macOS. Inspired by Wispr Flow. Speak any of 99 languages, get instant English text via whisper.cpp, polished with Ollama.
         </p>
 
         <!-- CTA Buttons -->
@@ -92,7 +92,7 @@
                 <span class="dot yellow"></span>
                 <span class="dot green"></span>
               </div>
-              <div class="simulator-title">Local Murmur Active Dictation</div>
+              <div class="simulator-title">Local Murmur — Live Demo</div>
               <div class="status-indicator">
                 <span class="status-dot"></span>
                 <span class="status-text" id="simulator-status">Ready</span>
@@ -125,7 +125,7 @@
                     <line x1="8" y1="23" x2="16" y2="23"></line>
                   </svg>
                 </div>
-                <span id="trigger-label">Click to Simulate Dictation</span>
+                <span id="trigger-label">Live demo — auto-playing</span>
               </button>
             </div>
           </div>
@@ -141,8 +141,8 @@
 
         <div class="features-grid">
           <!-- Card 1 -->
-          <div class="feature-card">
-            <div class="feature-icon-wrapper purple">
+          <div class="feature-card gold">
+            <div class="feature-icon-wrapper gold">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect>
                 <line x1="6" y1="8" x2="6" y2="8"></line>
@@ -160,7 +160,7 @@
           </div>
 
           <!-- Card 2 -->
-          <div class="feature-card">
+          <div class="feature-card blue">
             <div class="feature-icon-wrapper blue">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
@@ -171,7 +171,7 @@
           </div>
 
           <!-- Card 3 -->
-          <div class="feature-card">
+          <div class="feature-card green">
             <div class="feature-icon-wrapper green">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
@@ -179,12 +179,12 @@
                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
               </svg>
             </div>
-            <h3 class="feature-card-title">Native Hinglish Transcription</h3>
-            <p class="feature-card-desc">Speaks both Hindi and English naturally? Local Murmur transcribes mixed Indian English (Hinglish) flawlessly without breaking context.</p>
+            <h3 class="feature-card-title">Any Language → English</h3>
+            <p class="feature-card-desc">Speak in any of 99 supported languages — or mix them mid-sentence — and Local Murmur auto-detects and translates everything to clean English text.</p>
           </div>
 
           <!-- Card 4 -->
-          <div class="feature-card">
+          <div class="feature-card orange">
             <div class="feature-icon-wrapper orange">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
@@ -197,7 +197,7 @@
           </div>
 
           <!-- Card 5 -->
-          <div class="feature-card">
+          <div class="feature-card cyan">
             <div class="feature-icon-wrapper cyan">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -209,7 +209,7 @@
           </div>
 
           <!-- Card 6 -->
-          <div class="feature-card">
+          <div class="feature-card red">
             <div class="feature-icon-wrapper red">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
@@ -217,6 +217,38 @@
             </div>
             <h3 class="feature-card-title">Auto-paste Anywhere</h3>
             <p class="feature-card-desc">Injects polished text directly into active windows (Chrome, Slack, Cursor, Notes, etc.) via secure AppleScript commands instantly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Preview Section -->
+    <section class="preview-section">
+      <div class="glow-bg glow-3" aria-hidden="true"></div>
+      <div class="preview-grid">
+        <div class="preview-text">
+          <h2 class="preview-title">A native macOS settings <span class="gradient-text">experience.</span></h2>
+          <p class="preview-desc">
+            Pick your activation key, switch Whisper models, tune the accent color, and review your dictation history — all from a clean panel that lives quietly in your menu bar.
+          </p>
+        </div>
+        <div class="preview-image-wrapper">
+          <div class="preview-window">
+            <div class="preview-window-header">
+              <div class="window-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="preview-tabs">
+                <button class="tab-btn active" data-target="preview-img-hotkey">Hotkey</button>
+                <button class="tab-btn" data-target="preview-img-models">Models</button>
+                <button class="tab-btn" data-target="preview-img-history">History</button>
+              </div>
+            </div>
+            <img src="screenshot-hotkey.png" alt="Local Murmur settings window showing the Hotkey configuration page" class="preview-img active" id="preview-img-hotkey">
+            <img src="screenshot-models.png" alt="Local Murmur settings window showing the Models page with the download catalog" class="preview-img" id="preview-img-models">
+            <img src="screenshot-history.png" alt="Local Murmur settings window showing dictation History" class="preview-img" id="preview-img-history">
           </div>
         </div>
       </div>
@@ -267,6 +299,7 @@
     <section class="final-cta-section">
       <div class="final-cta-card">
         <div class="final-cta-glow"></div>
+        <div class="final-cta-glow-2"></div>
         <h2 class="final-title">Upgrade your typing workflow today</h2>
         <p class="final-desc">Experience fully local, intelligent voice-to-text. Free, open source, and completely private.</p>
         <div class="final-cta-btn-wrapper">

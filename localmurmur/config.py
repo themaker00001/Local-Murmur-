@@ -13,8 +13,9 @@ else:
     WHISPER_BIN = Path.home() / "whisper.cpp" / "build" / "bin" / "whisper-cli"
     ASSETS_DIR  = Path(__file__).resolve().parent / "assets"
 
-WHISPER_LANG    = "en"
-WHISPER_THREADS = 8
+WHISPER_LANG      = "auto"  # auto-detect the spoken language
+WHISPER_TRANSLATE = True    # translate the detected language to English
+WHISPER_THREADS   = 8
 
 # ── Models ───────────────────────────────────────────────────────────────────
 # Models are downloaded on demand (not bundled) — keeps the app small and lets
@@ -35,7 +36,7 @@ MODEL_CATALOG = [
      "desc": "Best balance of speed and accuracy. Recommended."},
     {"id": "medium",         "file": "ggml-medium.bin",         "size_mb": 1500,
      "label": "Medium",         "speed": "Moderate", "accuracy": "Excellent",
-     "desc": "Best for Hinglish & mixed-language speech."},
+     "desc": "Best for multilingual & mixed-language speech."},
     {"id": "large-v3-turbo", "file": "ggml-large-v3-turbo.bin", "size_mb": 1620,
      "label": "Large v3 Turbo", "speed": "Fast",     "accuracy": "Excellent",
      "desc": "Large-model accuracy at small-model speed."},

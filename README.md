@@ -6,7 +6,7 @@
 <p align="center"><strong>Wispr Flow Clone for Apple M4</strong></p>
 
 A fully local, free voice dictation tool that works in **every app** on your Mac.
-Supports **Hinglish** (Hindi + English), cleans filler words via Ollama, and pastes polished text wherever your cursor is.
+Speak in any of 99 languages (or mix them) — Local Murmur auto-detects the language, **translates it to English**, cleans filler words via Ollama, and pastes polished text wherever your cursor is.
 
 ---
 
@@ -44,9 +44,26 @@ up disk space.
 | Tiny | ~75 MB | Fastest | Basic | Quick English notes |
 | Base | ~142 MB | Very fast | Good | Everyday dictation |
 | Small | ~466 MB | Fast | Great | **Recommended** — balanced |
-| Medium | ~1.5 GB | Moderate | Excellent | Hinglish & mixed languages |
+| Medium | ~1.5 GB | Moderate | Excellent | Mixed-language & accented speech |
 | Large v3 Turbo | ~1.6 GB | Fast | Excellent | Large-model accuracy, faster |
 | Large v3 | ~2.9 GB | Slow | Best | Maximum accuracy, any language |
+
+---
+
+## Supported Languages
+
+Local Murmur runs OpenAI's Whisper, which understands **99 languages** —
+including mixed-language speech within a single clip. The spoken language
+is auto-detected and **automatically translated to English** before filler
+words are cleaned up. Larger models (`medium`, `large-v3`) are most accurate
+for mixed-language and accented speech.
+
+<details>
+<summary>Full language list</summary>
+
+Afrikaans, Albanian, Amharic, Arabic, Armenian, Assamese, Azerbaijani, Bashkir, Basque, Belarusian, Bengali, Bosnian, Breton, Bulgarian, Burmese, Cantonese, Catalan, Chinese, Croatian, Czech, Danish, Dutch, English, Estonian, Faroese, Finnish, French, Galician, Georgian, German, Greek, Gujarati, Haitian Creole, Hausa, Hawaiian, Hebrew, Hindi, Hungarian, Icelandic, Indonesian, Italian, Japanese, Javanese, Kannada, Kazakh, Khmer, Korean, Lao, Latin, Latvian, Lingala, Lithuanian, Luxembourgish, Macedonian, Malagasy, Malay, Malayalam, Maltese, Maori, Marathi, Mongolian, Nepali, Norwegian, Nynorsk, Occitan, Pashto, Persian, Polish, Portuguese, Punjabi, Romanian, Russian, Sanskrit, Serbian, Shona, Sindhi, Sinhala, Slovak, Slovenian, Somali, Spanish, Sundanese, Swahili, Swedish, Tagalog, Tajik, Tamil, Tatar, Telugu, Thai, Tibetan, Turkish, Turkmen, Ukrainian, Urdu, Uzbek, Vietnamese, Welsh, Yiddish, Yoruba
+
+</details>
 
 ---
 
@@ -130,13 +147,13 @@ SOUND_START  = True             # set False to disable beeps
 Open **Settings → Models**, download the model you want, then click
 **Use this model**. No code edits or restarts needed — the next dictation
 uses the newly selected model. `small`/`base` are faster; `medium`/`large-v3`
-are more accurate for Hinglish.
+are more accurate for multilingual and mixed-language speech.
 
 ---
 
 ## Performance on M4 (24 GB)
 
-| Model | Transcription speed | Hinglish accuracy |
+| Model | Transcription speed | Multilingual accuracy |
 |---|---|---|
 | `large-v3` | ~2–4s for 30s audio | ⭐⭐⭐⭐⭐ |
 | `medium` | ~0.8–1.5s for 30s audio | ⭐⭐⭐⭐ |

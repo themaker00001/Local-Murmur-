@@ -38,20 +38,21 @@ def audio_callback(indata, *_):
 def transcribe(wav_path: str) -> str:
     if not config.WHISPER_BIN.exists(): return "[whisper-cli not found]"
     if not config.WHISPER_MODEL.exists(): return "[no model installed]"
-    r = subprocess.run(
-        [str(config.WHISPER_BIN), "-m", str(config.WHISPER_MODEL), "-f", wav_path,
-         "-l", config.WHISPER_LANG, "-t", str(config.WHISPER_THREADS), "--no-timestamps", "-np"],
-        capture_output=True, text=True)
+    cmd = [str(config.WHISPER_BIN), "-m", str(config.WHISPER_MODEL), "-f", wav_path,
+           "-l", config.WHISPER_LANG, "-t", str(config.WHISPER_THREADS), "--no-timestamps", "-np"]
+    if config.WHISPER_TRANSLATE:
+        cmd.append("--translate")
+    r = subprocess.run(cmd, capture_output=True, text=True)
     lines = [l.strip() for l in r.stdout.splitlines() if l.strip() and not l.startswith("[")]
     return " ".join(lines)
 
 
 # ── LLM cleanup ───────────────────────────────────────────────────────────────
 _SYSTEM_PROMPT = (
-    "You are a transcription editor. The user speaks Hinglish (Hindi + English).\n"
-    "Remove filler words: um, uh, like, basically, you know, so, hmm, "
-    "actually, matlab, arey, haan toh, woh, bhai.\n"
-    "Fix obvious transcription errors. Keep the Hindi/English mix.\n"
+    "You are a transcription editor. The transcript has been translated to English\n"
+    "from whatever language the user spoke.\n"
+    "Remove filler words: um, uh, like, basically, you know, so, hmm, actually.\n"
+    "Fix obvious transcription errors.\n"
     "Return ONLY the cleaned text — no explanation, no quotes."
 )
 

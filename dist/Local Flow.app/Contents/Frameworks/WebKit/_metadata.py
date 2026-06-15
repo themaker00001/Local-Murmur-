@@ -1,1 +1,0 @@
-../../Resources/WebKit/_metadata.py

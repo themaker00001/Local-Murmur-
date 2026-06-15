@@ -1,0 +1,1 @@
+../../Resources/AVFoundation/_metadata.py

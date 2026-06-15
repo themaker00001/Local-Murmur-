@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">Local Murmur</h1>
-<p align="center"><strong>Wispr Flow Clone for Apple M4</strong></p>
+<p align="center"><strong>Inspired by Wispr Flow — built for Apple M4</strong></p>
 
 A fully local, free voice dictation tool that works in **every app** on your Mac.
 Speak in any of 99 languages (or mix them) — Local Murmur auto-detects the language, **translates it to English**, cleans filler words via Ollama, and pastes polished text wherever your cursor is.

@@ -56,22 +56,46 @@ _PASTE_SCRIPT = (
 )
 
 
+_APPLESCRIPT_PASTE = 'tell application "System Events" to keystroke "v" using command down'
+
+
+def _paste_via_applescript() -> bool:
+    """Send Cmd+V through the Accessibility API, which targets the actual
+    focused UI element of the frontmost app (works for Electron/web-based
+    apps where a raw CGEventPost can land on the wrong window)."""
+    r = subprocess.run(["osascript", "-e", _APPLESCRIPT_PASTE], capture_output=True, text=True)
+    if r.returncode != 0:
+        _log(f"paste via osascript failed (rc={r.returncode}): {r.stderr.strip()}")
+        return False
+    return True
+
+
+def _paste_via_pynput() -> bool:
+    python3 = _find_system_python()
+    if not python3:
+        _log("paste via pynput skipped — no system python found")
+        return False
+    r = subprocess.run([python3, "-c", _PASTE_SCRIPT], capture_output=True, text=True)
+    if r.returncode != 0:
+        _log(f"paste via pynput failed (rc={r.returncode}): {r.stderr.strip()}")
+        return False
+    return True
+
+
 def paste_text(text: str, target_app: str = ""):
     try: subprocess.run(["pbcopy"], input=text.encode("utf-8"), check=True)
     except Exception as e: _log(f"pbcopy: {e}"); return
     _log(f"paste_text: clipboard set, target_app={target_app!r}")
     if target_app:
         activate_app(target_app)
-        time.sleep(0.35)
+        time.sleep(0.5)
     else:
         time.sleep(0.05)
-    # Use pynput (same Accessibility permission as keyboard monitor — no Apple Events needed)
-    python3 = _find_system_python()
-    if python3:
-        r = subprocess.run([python3, "-c", _PASTE_SCRIPT], capture_output=True, text=True)
-        if r.returncode != 0:
-            _log(f"paste via pynput failed (rc={r.returncode}): {r.stderr.strip()}")
-        else:
-            _log("paste OK")
-    else:
-        _log("paste skipped — no system python found")
+
+    if _paste_via_applescript():
+        _log("paste OK (osascript)")
+        return
+
+    # Fallback: simulate Cmd+V via pynput using the system Python
+    if _paste_via_pynput():
+        _log("paste OK (pynput)")

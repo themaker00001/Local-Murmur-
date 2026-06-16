@@ -56,6 +56,7 @@ _PASTE_SCRIPT = (
 )
 
 
+
 _APPLESCRIPT_PASTE = 'tell application "System Events" to keystroke "v" using command down'
 
 

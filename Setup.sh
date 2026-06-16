@@ -71,8 +71,10 @@ if ! command -v python3 &>/dev/null; then
     brew install python3
 fi
 
-pip3 install --upgrade sounddevice numpy pynput 2>/dev/null || \
-    pip3 install --break-system-packages sounddevice numpy pynput
+pip3 install --upgrade sounddevice numpy pynput rumps \
+    pyobjc-framework-WebKit pyobjc-framework-AVFoundation 2>/dev/null || \
+    pip3 install --break-system-packages sounddevice numpy pynput rumps \
+    pyobjc-framework-WebKit pyobjc-framework-AVFoundation
 info "Python packages installed"
 
 # ── 6. Ollama (optional — only used when USE_LLM_CLEANUP=True) ─

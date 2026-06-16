@@ -110,9 +110,9 @@ Go to **System Settings → Privacy & Security** and allow **Terminal** (or your
 ollama serve
 ```
 
-**Terminal 2** — start Flow:
+**Terminal 2** — start Flow (from inside the project folder):
 ```bash
-python3 ~/flow.py
+python3 flow.py
 ```
 
 Then **click into any app** (Slack, browser, Notes, VS Code…) and:
